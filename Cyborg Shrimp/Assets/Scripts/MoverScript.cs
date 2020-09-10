@@ -41,7 +41,7 @@ public class MoverScript : MonoBehaviour
     
     public void Down()
     {
-        Debug.Log(message: "wrong way!");
+        print(message: "wrong way!");
         transform.Translate(speed,0,0);
     }
     
@@ -55,5 +55,10 @@ public class MoverScript : MonoBehaviour
     {
         Debug.Log(message: "I think the directions are screwed up...");
         transform.Translate(0,speed,0);
+    }
+
+    public void PrintText()
+    {
+        
     }
 }

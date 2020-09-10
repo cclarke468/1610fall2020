@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 228437015}
   - component: {fileID: 228437017}
   - component: {fileID: 228437016}
+  - component: {fileID: 228437018}
   m_Layer: 5
   m_Name: TextBox
   m_TagString: Untagged
@@ -302,6 +303,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228437014}
   m_CullTransparentMesh: 0
+--- !u!114 &228437018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228437014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d40088a6124c578ad6b428df586e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pivot: {x: 0, y: 0}
+  m_anchorPosition: 4
+  m_rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_margins: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &308349919
 GameObject:
   m_ObjectHideFlags: 0

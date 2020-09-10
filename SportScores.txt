@@ -1,4 +1,5 @@
 Day 1: COVID-1, Humans-0
 Day 4: COVID-197, Humans-5
 Day 213: COVID-1,059,732, Humans-(-10)
-Day 5,000: COVID-7.2 billion, Humans—0
+Day 607: COVID-10,568, Humans-(-120)
+Day 5,000: COVID-7.2 billion, Humans—extinct

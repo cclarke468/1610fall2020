@@ -9,14 +9,14 @@ public class MoverScript : MonoBehaviour
     {
         Debug.Log(message: "Hello World!");
     }
-    public float speed = 5f;
+    public float speed = 1f;
     //variable is "speed"
     public int score = 100; 
     // int must be a whole interger
     public float Health = 50.0f;
     public string Password;
     public int Points;
-    public string playerName;
+    public string playerName = "Buddy the Cube";
 
     
 
@@ -34,12 +34,26 @@ public class MoverScript : MonoBehaviour
 
     public void Up()
     {
-        Debug.Log(message: "what did you think this was going to do?");
+        print("what did you think this was going to do?");
+        transform.Translate(0,-speed,0);
+
     }
     
     public void Down()
     {
-        
-        Debug.Log(message: "what did you think this was going to do?");
+        Debug.Log(message: "wrong way!");
+        transform.Translate(speed,0,0);
+    }
+    
+    public void Right()
+    {
+        Debug.Log(message: "oops");
+        transform.Translate(-speed,0,0);
+    }
+    
+    public void Left()
+    {
+        Debug.Log(message: "I think the directions are screwed up...");
+        transform.Translate(0,speed,0);
     }
 }

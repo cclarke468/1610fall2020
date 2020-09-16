@@ -1,37 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TextEditor = UnityEditor.UI.TextEditor;
+﻿using UnityEngine;
 
 public class MoverScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public UnityEngine.UI.Text textbox;
     public void PrintText(string messageToPrint)
     {
         
     }
+
+    public Vector3 coordinates; 
     void Start()
     {
-        Debug.Log(message: "Hello World!");
+        Debug.Log(message: "Hello!");
     }
     public float speed = 1f;
     public int score = 100;
-    public float Health = 50.0f;
-    public string Password;
-    public int Points;
+    public float health = 50.0f;
+    public string password;
+    public int points;
     public string playerName = "Buddy the Cube";
-
     
-
-    // Update is called once per frame
-    //private means it cannot be seen from the Unity editor
     private void Update()
     {
         // var declares variables inside a function
         var vInput = speed * Time.deltaTime * Input.GetAxis("Vertical");
         var hInput = speed * Time.deltaTime * Input.GetAxis("Horizontal");
         transform.Translate(hInput, vInput, 0);
+        //fix "jump" if else statement below
+        if (Input.GetButton("Jump") && coordinates.z == 0)
+        {
+            coordinates.z = 45;
+            transform.Rotate(coordinates);
+            print("Jump");
+        }
+        else
+        {
+            coordinates.z = 0;
+            transform.Rotate(coordinates);
+            print("No jump");
+        }
 
     }
 

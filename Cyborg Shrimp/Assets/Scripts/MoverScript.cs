@@ -2,70 +2,60 @@
 
 public class MoverScript : MonoBehaviour
 {
-    public UnityEngine.UI.Text textbox;
-    public void PrintText(string messageToPrint)
-    {
-        
-    }
-
-    public Vector3 coordinates; 
-    void Start()
-    {
-        Debug.Log(message: "Hello!");
-    }
-    public float speed = 1f;
-    public int score = 100;
-    public float health = 50.0f;
-    public string password;
-    public int points;
-    public string playerName = "Buddy the Cube";
+    private Vector3 playerDirection;
+    private float yDirection;
     
+    public CharacterController playerController;
+    public float playerSpeed = 200f, gravity = -9.81f, jumpForce = 5f;
+
     private void Update()
     {
-        // var declares variables inside a function
-        var vInput = speed * Time.deltaTime * Input.GetAxis("Vertical");
-        var hInput = speed * Time.deltaTime * Input.GetAxis("Horizontal");
-        transform.Translate(hInput, vInput, 0);
-        //fix "jump" if else statement below
-        if (Input.GetButton("Jump") && coordinates.z == 0)
+        // var declares a temp variable inside a function
+        // var vInput = playerSpeed * Time.deltaTime * Input.GetAxis("Vertical");
+        var hInput = playerSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
+        
+        playerDirection.Set(hInput, yDirection, 0);
+        
+        //to make player fall faster the longer he's in the air (increase velocity)
+        yDirection += gravity * Time.deltaTime;
+       
+        //to reset the falling speed after he hits the ground
+        if (playerController.isGrounded && playerDirection.y < 0)
         {
-            coordinates.z = 45;
-            transform.Rotate(coordinates);
-            print("Jump");
+            yDirection = -1f;
         }
-        else
+
+        if (Input.GetButton("Jump"))
         {
-            coordinates.z = 0;
-            transform.Rotate(coordinates);
-            print("No jump");
+            yDirection = jumpForce;
         }
+
+        var movement = playerDirection * Time.deltaTime;
+        playerController.Move(movement);
 
     }
-
+    
+    //to control the Up, Down, Left and Right buttons:
     public void Up()
     {
         print("what did you think this was going to do?");
-        transform.Translate(0,-speed,0);
+        // transform.Translate(0,-playerSpeed,0);
 
     }
-    
     public void Down()
     {
         print(message: "wrong way!");
-        transform.Translate(speed,0,0);
+        // transform.Translate(playerSpeed,0,0);
     }
-    
     public void Right()
     {
         Debug.Log(message: "oops");
-        transform.Translate(-speed,0,0);
+        // transform.Translate(-playerSpeed,0,0);
     }
-    
     public void Left()
     {
         Debug.Log(message: "I think the directions are screwed up...");
-        transform.Translate(0,speed,0);
+        // transform.Translate(0,playerSpeed,0);
     }
-
     
 }

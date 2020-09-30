@@ -11,7 +11,6 @@ public class MoverScript : MonoBehaviour
     private void Update()
     {
         // var declares a temp variable inside a function
-        // var vInput = playerSpeed * Time.deltaTime * Input.GetAxis("Vertical");
         var hInput = playerSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
         
         playerDirection.Set(hInput, yDirection, 0);

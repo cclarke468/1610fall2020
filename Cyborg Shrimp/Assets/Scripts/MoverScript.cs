@@ -56,5 +56,4 @@ public class MoverScript : MonoBehaviour
         Debug.Log(message: "I think the directions are screwed up...");
         // transform.Translate(0,playerSpeed,0);
     }
-    
 }

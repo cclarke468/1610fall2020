@@ -10,10 +10,16 @@ public class DestroyOutOfBounds : MonoBehaviour
     {
         //delete object once it passes out of bounds
         //FYI: transform.position accesses the position of the object this script is applied to
-        if (transform.position.z > topBoundary || transform.position.z < bottomBoundary)
+        if (transform.position.z > topBoundary)
         {
             Destroy(gameObject);
             //"gameObject" is the object this script is applied to
+        }
+        else if (transform.position.z < bottomBoundary)
+        {
+            Destroy(gameObject);
+            Debug.Log("Game Over!");
+            //give "Game Over" message in console if any animal passes bottom boundary
         }
     }
 }

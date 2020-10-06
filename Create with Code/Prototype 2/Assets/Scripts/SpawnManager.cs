@@ -6,7 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] animalPrefabs; 
     //new array of GameObjects
- 
+    private float spawnRangeX = 20f;
+    private float spawnPosZ = 20f;
     void Update()
     {
         //to use to call the number of any object in the array
@@ -16,11 +17,13 @@ public class SpawnManager : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.S)) //on "s" button, do...
         {
-            Instantiate(animalPrefabs[animalIndex], new Vector3(0,0,20), 
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+            //spawn position is randomly generated for x-axis between -20 and 20, the spawnRange
+            Instantiate(animalPrefabs[animalIndex], spawnPosition, 
                 animalPrefabs[animalIndex].transform.rotation);
             
             //this means create new game objects from the array of animal prefabs,
-            //in the location z + 20 (so it's out of the player's view)
+            //in the location of our spawnPosition
             //and summon each of those animals at the correct rotation
         }
     }

@@ -6568,8 +6568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171036e14d00f45559b78869a3f62c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1809196446}
-  playerSpeed: 150
+  playerSpeed: 200
   gravity: -9.81
   jumpForce: 5
 --- !u!65 &1809196442
@@ -6579,7 +6578,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809196440}
-  m_Material: {fileID: 13400000, guid: eff1bc2eeb6f44229aa7f51365ba287f, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

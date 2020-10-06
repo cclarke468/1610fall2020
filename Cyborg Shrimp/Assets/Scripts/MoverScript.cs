@@ -1,12 +1,18 @@
-﻿using UnityEngine;
-
+﻿using System;
+using UnityEngine;
+[RequireComponent(typeof(CharacterController))]
 public class MoverScript : MonoBehaviour
 {
     private Vector3 playerDirection;
     private float yDirection;
     
-    public CharacterController playerController;
+    private CharacterController playerController;
     public float playerSpeed = 200f, gravity = -9.81f, jumpForce = 5f;
+
+    private void Start()
+    {
+        playerController = GetComponent<CharacterController>();
+    }
 
     private void Update()
     {
@@ -14,7 +20,7 @@ public class MoverScript : MonoBehaviour
         var hInput = playerSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
         
         playerDirection.Set(hInput, yDirection, 0);
-        
+
         //to make player fall faster the longer he's in the air (increase velocity)
         yDirection += gravity * Time.deltaTime;
        
@@ -35,25 +41,25 @@ public class MoverScript : MonoBehaviour
     }
     
     //to control the Up, Down, Left and Right buttons:
-    public void Up()
-    {
-        print("what did you think this was going to do?");
-        // transform.Translate(0,-playerSpeed,0);
-
-    }
-    public void Down()
-    {
-        print(message: "wrong way!");
-        // transform.Translate(playerSpeed,0,0);
-    }
-    public void Right()
-    {
-        Debug.Log(message: "oops");
-        // transform.Translate(-playerSpeed,0,0);
-    }
-    public void Left()
-    {
-        Debug.Log(message: "I think the directions are screwed up...");
-        // transform.Translate(0,playerSpeed,0);
-    }
+    // public void Up()
+    // {
+    //     print("what did you think this was going to do?");
+    //     // transform.Translate(0,-playerSpeed,0);
+    //
+    // }
+    // public void Down()
+    // {
+    //     print(message: "wrong way!");
+    //     // transform.Translate(playerSpeed,0,0);
+    // }
+    // public void Right()
+    // {
+    //     Debug.Log(message: "oops");
+    //     // transform.Translate(-playerSpeed,0,0);
+    // }
+    // public void Left()
+    // {
+    //     Debug.Log(message: "I think the directions are screwed up...");
+    //     // transform.Translate(0,playerSpeed,0);
+    // }
 }

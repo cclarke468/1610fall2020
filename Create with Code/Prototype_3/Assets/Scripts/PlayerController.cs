@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
     private float jumpForce = 10f;
-    private float gravityModifier = 1f; 
+    private float gravityModifier = 1f;
+    public bool gameOver = false; //must be public so other scripts can access this variable (see MoveLeft.cs)
     void Start()
     {
         //in order to access components of Rigidbody (like "transform._____") we have to use code
@@ -29,8 +30,16 @@ public class PlayerController : MonoBehaviour
         }
     }
     //to tell when player collides with the ground, or another object...
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collidedObject)
     {
-        isOnGround = true;
+        if (collidedObject.gameObject.CompareTag("Ground")) //use tags in Unity to refer to specific game objects
+        {
+            isOnGround = true;
+        }
+        else if (collidedObject.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;
+            Debug.Log("Game Over!");
+        }
     }
 }

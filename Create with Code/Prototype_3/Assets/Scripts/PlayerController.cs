@@ -6,27 +6,33 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
-    private float jumpForce = 10f;
-    private float gravityModifier = 1f;
-    public bool gameOver = false; //must be public so other scripts can access this variable (see MoveLeft.cs)
+    public float jumpForce = 45f;
+    private float gravityModifier = 2.5f;
+    public bool gameOver;
+    private Animator playerAnimator; 
     void Start()
     {
         //in order to access components of Rigidbody (like "transform._____") we have to use code
         playerRigidbody = GetComponent<Rigidbody>();
         //now we can access stuff inside Rigidbody, like "AddForce"
-            // playerRigidbody.AddForce(Vector3.up * 1000);
+        
         Physics.gravity *= gravityModifier;
         //this statement accesses the game's physics...now we can mess with Unity's gravity
+        
+        playerAnimator = GetComponent<Animator>();
     }
 
     private bool isOnGround = true;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
         {
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
             //ForceMode has 4 types of forces; impulse applies the wanted force immediately instead of over time, which is the default
+            
             isOnGround = false;
+            playerAnimator.SetTrigger("Jump_trig");
+                //PROBLEM: can't edit running jump state in unity editor
         }
     }
     //to tell when player collides with the ground, or another object...
@@ -40,6 +46,8 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("Game Over!");
+            playerAnimator.SetBool("Death_b", true);
+            playerAnimator.SetInteger("DeathType_int",1);
         }
     }
 }

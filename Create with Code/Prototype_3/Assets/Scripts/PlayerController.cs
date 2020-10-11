@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public bool gameOver;
     private Animator playerAnimator; 
     public ParticleSystem explosionParticle;
+    public ParticleSystem dirtParticle;
+    public AudioClip jumpSound;
+    public AudioClip crashSound;
+    private AudioSource playerAudio;
     void Start()
     {
         //in order to access components of Rigidbody (like "transform._____") we have to use code
@@ -21,6 +25,7 @@ public class PlayerController : MonoBehaviour
         //this statement accesses the game's physics...now we can mess with Unity's gravity
         
         playerAnimator = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     private bool isOnGround = true;
@@ -34,6 +39,9 @@ public class PlayerController : MonoBehaviour
             isOnGround = false;
             playerAnimator.SetTrigger("Jump_trig");
                 //PROBLEM: can't edit running jump state in unity editor
+                
+            dirtParticle.Stop(); 
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
     }
     //to tell when player collides with the ground, or another object...
@@ -42,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (collidedObject.gameObject.CompareTag("Ground")) //use tags in Unity to refer to specific game objects
         {
             isOnGround = true;
+            dirtParticle.Play(); 
         }
         else if (collidedObject.gameObject.CompareTag("Obstacle"))
         {
@@ -50,6 +59,8 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("Death_b", true);
             playerAnimator.SetInteger("DeathType_int",1);
             explosionParticle.Play();
+            dirtParticle.Stop(); 
+            playerAudio.PlayOneShot(crashSound, 1.0f);
         }
     }
 }

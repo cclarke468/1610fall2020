@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float gravityModifier = 2.5f;
     public bool gameOver;
     private Animator playerAnimator; 
+    public ParticleSystem explosionParticle;
     void Start()
     {
         //in order to access components of Rigidbody (like "transform._____") we have to use code
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over!");
             playerAnimator.SetBool("Death_b", true);
             playerAnimator.SetInteger("DeathType_int",1);
+            explosionParticle.Play();
         }
     }
 }

@@ -9,10 +9,18 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyPrefab;
     private float spawnRange = 9;
 
-    private void Start()
+    private Vector3 GenerateSpawnPosition()
     {
         float spawnPosX = Random.Range(spawnRange, -spawnRange);
         float spawnPosZ = Random.Range(spawnRange, -spawnRange);
-        Instantiate(enemyPrefab, new Vector3(spawnPosX, 15, spawnPosZ), enemyPrefab.transform.rotation);
+        Vector3 randomPos = new Vector3(spawnPosX, 15, spawnPosZ);
+        return randomPos;
     }
+    private void Start()
+    {
+        
+        Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+    }
+
+    
 }

@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
         {
             hasPowerup = true;
             powerupIndicator.gameObject.SetActive(true);
-            Destroy(other.gameObject);
-            StartCoroutine(PowerupCountdown());
+            other.gameObject.SetActive(false);
+            StartCoroutine(PowerupCountdown(other));
         }
     }
 
@@ -39,11 +39,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator PowerupCountdown()
+    IEnumerator PowerupCountdown(Collider other)
     {
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         powerupIndicator.gameObject.SetActive(false);
+        other.gameObject.SetActive(true); 
     }
     void Update()
     {

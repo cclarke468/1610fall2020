@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 45f;
     private float gravityModifier = 2.5f;
     public bool gameOver;
+    private GlobalData gameOverGlobal; //NEW global data script with bool
     private Animator playerAnimator; 
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool isOnGround = true;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver) //if player jumps off ground
         {
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
             //ForceMode has 4 types of forces; impulse applies the wanted force immediately instead of over time, which is the default
@@ -55,11 +56,17 @@ public class PlayerController : MonoBehaviour
         else if (collidedObject.gameObject.CompareTag("Obstacle"))
         {
             gameOver = true;
+            gameOverGlobal.gameOverBool = true;
             Debug.Log("Game Over!");
+            // if (!gameOverGlobal.gameOverBool)
+            // {
+            //     Debug.Log("Global data game over is true");
+            // }
             playerAnimator.SetBool("Death_b", true);
             playerAnimator.SetInteger("DeathType_int",1);
             explosionParticle.Play();
             dirtParticle.Stop(); 
+            playerAudio.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
         }
     }

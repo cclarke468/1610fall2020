@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Target : MonoBehaviour
+public class Rock : MonoBehaviour
 {
     private Rigidbody targetRb;
     private float minSpeed = 15, maxSpeed = 17.5f, maxTorque = 10, xRange = 4, ySpawnPos = -6;

@@ -353,7 +353,7 @@ MonoBehaviour:
   rockList: []
   scoreText: {fileID: 55714182}
   titleScreen: {fileID: 886287107}
-  gameOverScreen: {fileID: 0}
+  gameOverScreen: {fileID: 1498699406}
   gameIsOver: 0
 --- !u!4 &63377968
 Transform:

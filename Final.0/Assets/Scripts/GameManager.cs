@@ -27,14 +27,23 @@ public class GameManager : MonoBehaviour
             Instantiate(rockList[index]);
         }
     }
-    public void StartGame(int difficulty)
+    // public void StartGame(int difficulty)
+    // {
+    //     gameIsOver = false;
+    //     StartCoroutine(SpawnTarget());
+    //     score = 0;
+    //     UpdateScore(0);
+    //     titleScreen.gameObject.SetActive(false);
+    //     spawnRate /= difficulty;
+    // }
+    void Start()
     {
         gameIsOver = false;
         StartCoroutine(SpawnTarget());
         score = 0;
         UpdateScore(0);
         titleScreen.gameObject.SetActive(false);
-        spawnRate /= difficulty;
+        // spawnRate /= difficulty;
     }
 
     public void UpdateScore(int scoreToAdd)

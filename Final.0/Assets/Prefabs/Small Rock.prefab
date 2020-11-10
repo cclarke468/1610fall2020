@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 2876258924752295901}
   - component: {fileID: 4680925282991510797}
   m_Layer: 0
-  m_Name: Crate_01
-  m_TagString: Obstacle
+  m_Name: Small Rock
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

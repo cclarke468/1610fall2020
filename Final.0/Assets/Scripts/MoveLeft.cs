@@ -16,12 +16,13 @@ public class MoveLeft : MonoBehaviour
 
     void Update()
     {
+        var hInput = -Input.GetAxis("Horizontal"); //negative because backdrop needs to move opposite the player
         if (!gameOver.gameOverBool)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(Time.deltaTime * speed * new Vector3(hInput,0,0));
         }
 
-        if (transform.position.y < bottomBound && gameObject.CompareTag("Obstacle"))
+        if (transform.position.y < bottomBound && gameObject.CompareTag("Rock"))
         {
             Destroy(gameObject); //destroy obstacles passing left boundary
         }

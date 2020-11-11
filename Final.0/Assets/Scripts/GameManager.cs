@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     // public Button restartButton;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
-    private int score;
+    private int rockScore;
     private float spawnRate = 1f;
     public bool gameIsOver;
     
@@ -36,20 +36,20 @@ public class GameManager : MonoBehaviour
     //     titleScreen.gameObject.SetActive(false);
     //     spawnRate /= difficulty;
     // }
-    void Start()
+    public void StartGame(int level)
     {
         gameIsOver = false;
         StartCoroutine(SpawnTarget());
-        score = 0;
+        rockScore = 0;
         UpdateScore(0);
         titleScreen.gameObject.SetActive(false);
-        // spawnRate /= difficulty;
+        // spawnRate /= level;
     }
 
     public void UpdateScore(int scoreToAdd)
     {
-        score += scoreToAdd;
-        scoreText.text = score + " Rocks";
+        rockScore += scoreToAdd;
+        scoreText.text = rockScore + " Rocks";
     }
     public void GameOver()
     {

@@ -17,7 +17,7 @@ public class ButtonControl : MonoBehaviour
 
     void GetLevel()
     {
-        gameManager.StartGame(difficulty);
+        gameManager.StartGame(/*level*/);
     }
 
 }

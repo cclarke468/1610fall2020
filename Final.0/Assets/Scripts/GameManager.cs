@@ -28,10 +28,10 @@ public class GameManager : MonoBehaviour
         }
     }
   
-    public void StartGame(int level)
+    public void StartGame(/*int level*/)
     {
         gameIsOver = false;
-        StartCoroutine(SpawnTarget());
+        // StartCoroutine(SpawnTarget());
         rockScore = 0;
         UpdateScore(0);
         titleScreen.gameObject.SetActive(false);
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         rockScore += scoreToAdd;
-        scoreText.text = rockScore + " Rocks";
+        // scoreText.text = rockScore + " Rocks";
     }
     public void GameOver()
     {

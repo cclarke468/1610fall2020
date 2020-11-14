@@ -7,9 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
     public float jumpForce = 45f;
-    private float gravityModifier = 2.5f;
-    // public bool gameOver;
-    public GlobalData gameOverGlobal; //NEW global data script with bool
+    private float gravityModifier = 0.5f;
+    public GlobalData globalData; //NEW global data script with bool
     private Animator playerAnimator; 
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
@@ -18,10 +17,8 @@ public class PlayerController : MonoBehaviour
     private AudioSource playerAudio;
     void Start()
     {
-        //in order to access components of Rigidbody (like "transform._____") we have to use code
         playerRigidbody = GetComponent<Rigidbody>();
-        //now we can access stuff inside Rigidbody, like "AddForce"
-        
+
         Physics.gravity *= gravityModifier;
         //this statement accesses the game's physics...now we can mess with Unity's gravity
         
@@ -32,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool isOnGround = true;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOverGlobal.gameOverBool) //if player jumps off ground
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !globalData.isGameOver) //if player jumps off ground
         {
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
             //ForceMode has 4 types of forces; impulse applies the wanted force immediately instead of over time, which is the default
@@ -56,9 +53,9 @@ public class PlayerController : MonoBehaviour
         else if (collidedObject.gameObject.CompareTag("Rock")) //change this function
         {
             // gameOver = true;
-            gameOverGlobal.gameOverBool = true;
+            globalData.isGameOver = true;
             Debug.Log("Game Over!");
-            if (gameOverGlobal.gameOverBool)
+            if (globalData.isGameOver)
             {
                 Debug.Log("Game Over!");
             }

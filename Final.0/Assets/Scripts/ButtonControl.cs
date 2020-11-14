@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ButtonControl : MonoBehaviour
 {
     private Button button;
-    private GameManager gameManager;
-    public int difficulty;
+    public GlobalData globalData;
+    public GameManager gameManager;
     void Start()
     {
         button = GetComponent<Button>();
@@ -18,6 +18,7 @@ public class ButtonControl : MonoBehaviour
     void GetLevel()
     {
         gameManager.StartGame(/*level*/);
+        // globalData.StartGame(/*level*/);
     }
 
 }

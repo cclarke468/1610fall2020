@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         rockScore += scoreToAdd;
-        // scoreText.text = rockScore + " Rocks";
+        scoreText.text = rockScore + " Rocks";
     }
     public void GameOver()
     {

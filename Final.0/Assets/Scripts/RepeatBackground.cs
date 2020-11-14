@@ -12,6 +12,7 @@ public class RepeatBackground : MonoBehaviour
     {
         startPosition = transform.position; //set background position to it's current position
         resetPos = GetComponent<BoxCollider>().size.x / 2;
+        print(resetPos);
         //use box collider to measure width of background, so get the box collider's width (x) and divide by 2
         //now we know exactly when to repeat
     }

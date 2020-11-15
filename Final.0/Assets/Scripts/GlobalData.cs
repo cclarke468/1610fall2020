@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GlobalData : ScriptableObject
 {
     public bool isGameOver;
+    public bool gameStarted;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
     public List<GameObject> rockList;
@@ -16,6 +17,7 @@ public class GlobalData : ScriptableObject
     public void StartGame(/*int level*/)
     {
         isGameOver = false;
+        gameStarted = true;
         // StartCoroutine(SpawnTarget());
         rockScore = 0;
         UpdateScore(0);

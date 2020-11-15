@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop(); 
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
+
+        if (globalData.gameStarted)
+        {
+            playerAudio.Play();
+        }
     }
     //to tell when player collides with the ground, or another object...
     private void OnCollisionEnter(Collision collidedObject)
@@ -54,6 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             // gameOver = true;
             globalData.isGameOver = true;
+            globalData.gameStarted = false;
             Debug.Log("Game Over!");
             if (globalData.isGameOver)
             {

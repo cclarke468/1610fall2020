@@ -18,15 +18,15 @@ public class GameManager : MonoBehaviour
     public bool gameIsOver;
     
 
-    IEnumerator SpawnTarget()
-    {
-        while (!gameIsOver)
-        {
-            yield return new WaitForSeconds(spawnRate);
-            int index = Random.Range(0, rockList.Count); 
-            Instantiate(rockList[index]);
-        }
-    }
+    // IEnumerator SpawnTarget()
+    // {
+    //     while (!gameIsOver)
+    //     {
+    //         yield return new WaitForSeconds(spawnRate);
+    //         int index = Random.Range(0, rockList.Count); 
+    //         Instantiate(rockList[index]);
+    //     }
+    // }
   
     public void StartGame(/*int level*/)
     {

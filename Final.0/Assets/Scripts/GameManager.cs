@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,26 +8,20 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> rockList;
+    // public List<GameObject> rockList;
     public TextMeshProUGUI scoreText;
     public GlobalData globalData;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
     public PlayerController playerController;
 
-    // IEnumerator SpawnTarget()
-    // {
-    //     while (!gameIsOver)
-    //     {
-    //         yield return new WaitForSeconds(spawnRate);
-    //         int index = Random.Range(0, rockList.Count); 
-    //         Instantiate(rockList[index]);
-    //     }
-    // }
-  
+    private void Awake()
+    {
+        titleScreen.gameObject.SetActive(true);
+    }
+
     public void StartGame(/*int level*/)
     {
-        globalData.isGameOver = false;
         globalData.gameStarted = true;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerController.playerAudio.Play();

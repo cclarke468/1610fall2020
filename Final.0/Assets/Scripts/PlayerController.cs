@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRigidbody;
-    public float jumpForce = 45f;
+    public float jumpForce = 30f;
     private float gravityModifier = 0.5f;
     public GlobalData globalData; 
     public GameManager gameManager;

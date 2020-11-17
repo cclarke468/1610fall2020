@@ -19,9 +19,10 @@ public class RepeatBackground : MonoBehaviour
     private void Update()
     {
         //make background reset to start position once it passes reset point
-        if (transform.position.x < startPosition.x - resetPos)
+        if (transform.position.x < startPosition.x - resetPos || transform.position.x > startPosition.x + resetPos)
         {
             transform.position = startPosition;
         }
+
     }
 }

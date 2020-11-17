@@ -1886,7 +1886,6 @@ GameObject:
   - component: {fileID: 1731322113}
   - component: {fileID: 1731322112}
   - component: {fileID: 1731322111}
-  - component: {fileID: 1731322115}
   - component: {fileID: 1731322114}
   m_Layer: 0
   m_Name: Play Button
@@ -1957,18 +1956,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1731322112}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1731322115}
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1731322112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2020,23 +2008,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalData: {fileID: 11400000, guid: 9946510dc06e54330989342de7bd3f97, type: 2}
   gameManager: {fileID: 63377967}
---- !u!114 &1731322115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731322109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ed465cfff37f433c96dab6a00c6bfe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockList: []
-  scoreText: {fileID: 0}
-  globalData: {fileID: 0}
-  titleScreen: {fileID: 0}
-  gameOverScreen: {fileID: 0}
 --- !u!1 &1819478689
 GameObject:
   m_ObjectHideFlags: 0

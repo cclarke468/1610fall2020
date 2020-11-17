@@ -10,12 +10,12 @@ public class PlayerController : MonoBehaviour
     private float gravityModifier = 0.5f;
     public GlobalData globalData; 
     public GameManager gameManager;
-    private Animator playerAnimator; 
+    public Animator playerAnimator; 
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
     public AudioClip jumpSound;
     public AudioClip crashSound;
-    private AudioSource playerAudio;
+    public AudioSource playerAudio;
     private bool isOnGround = true;
     void Start()
     {
@@ -40,10 +40,10 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
 
-        if (globalData.gameStarted)
-        {
-            playerAudio.Play();
-        }
+        // if (globalData.gameStarted)
+        // {
+        //     playerAudio.Play();
+        // }
     }
     //to tell when player collides with the ground, or another object...
     private void OnCollisionEnter(Collision collidedObject)

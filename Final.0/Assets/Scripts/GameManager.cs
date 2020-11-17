@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GlobalData globalData;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
+    public PlayerController playerController;
 
     // IEnumerator SpawnTarget()
     // {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
     {
         globalData.isGameOver = false;
         globalData.gameStarted = true;
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerController.playerAudio.Play();
         globalData.rockScore = 0;
         UpdateScore(0);
         titleScreen.gameObject.SetActive(false);

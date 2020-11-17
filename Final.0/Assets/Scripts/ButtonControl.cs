@@ -7,18 +7,17 @@ public class ButtonControl : MonoBehaviour
 {
     private Button button;
     public GlobalData globalData;
-    // public GameManager gameManager;
+    public GameManager gameManager;
     void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(GetLevel);
-        // gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     void GetLevel()
     {
-        // gameManager.StartGame(/*level*/);
-        globalData.StartGame(/*level*/);
+        gameManager.StartGame(/*level*/);
     }
 
 }

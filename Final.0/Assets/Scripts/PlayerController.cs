@@ -8,25 +8,23 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRigidbody;
     public float jumpForce = 45f;
     private float gravityModifier = 0.5f;
-    public GlobalData globalData; //NEW global data script with bool
+    public GlobalData globalData; 
+    public GameManager gameManager;
     private Animator playerAnimator; 
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
     public AudioClip jumpSound;
     public AudioClip crashSound;
     private AudioSource playerAudio;
+    private bool isOnGround = true;
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-
         Physics.gravity *= gravityModifier;
-        //this statement accesses the game's physics...now we can mess with Unity's gravity
-        
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerAnimator = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
     }
-
-    private bool isOnGround = true;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !globalData.isGameOver) //if player jumps off ground
@@ -57,20 +55,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (collidedObject.gameObject.CompareTag("Rock")) //change this function
         {
-            // gameOver = true;
             globalData.isGameOver = true;
             globalData.gameStarted = false;
-            Debug.Log("Game Over!");
-            if (globalData.isGameOver)
-            {
-                Debug.Log("Game Over!");
-            }
             playerAnimator.SetBool("Death_b", true);
             playerAnimator.SetInteger("DeathType_int",1);
             explosionParticle.Play();
             dirtParticle.Stop(); 
             playerAudio.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
+            gameManager.GameOver();
         }
     }
 }

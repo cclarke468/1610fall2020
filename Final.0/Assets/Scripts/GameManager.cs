@@ -9,14 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public List<GameObject> rockList;
     public TextMeshProUGUI scoreText;
-    // public TextMeshProUGUI gameOverText;
-    // public Button restartButton;
+    public GlobalData globalData;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
-    private int rockScore;
-    private float spawnRate = 1f;
-    public bool gameIsOver;
-    
 
     // IEnumerator SpawnTarget()
     // {
@@ -30,25 +25,22 @@ public class GameManager : MonoBehaviour
   
     public void StartGame(/*int level*/)
     {
-        gameIsOver = false;
-        // StartCoroutine(SpawnTarget());
-        rockScore = 0;
+        globalData.isGameOver = false;
+        globalData.gameStarted = true;
+        globalData.rockScore = 0;
         UpdateScore(0);
         titleScreen.gameObject.SetActive(false);
-        // spawnRate /= level;
     }
 
     public void UpdateScore(int scoreToAdd)
     {
-        rockScore += scoreToAdd;
-        scoreText.text = rockScore + " Rocks";
+        globalData.rockScore += scoreToAdd;
+        scoreText.text = globalData.rockScore + " Rocks";
     }
     public void GameOver()
     {
-        // gameOverText.gameObject.SetActive(true);
-        // restartButton.gameObject.SetActive(true);
         gameOverScreen.gameObject.SetActive(true);
-        gameIsOver = true;
+        globalData.isGameOver = true;
     }
     public void RestartGame()
     {

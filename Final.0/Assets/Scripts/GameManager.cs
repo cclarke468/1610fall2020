@@ -15,13 +15,14 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public PlayerController playerController;
 
-    // private void Awake()
-    // {
-    //     titleScreen.gameObject.SetActive(true);
-    // }
+    private void Awake()
+    {
+        titleScreen.gameObject.SetActive(true);
+    }
 
     public void StartGame(/*int level*/)
     {
+        globalData.isGameOver = false;
         globalData.gameStarted = true;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerController.playerAudio.Play();
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        print("how do i skip the title screen upon restart...? hmmmm...");
     }
     
 }

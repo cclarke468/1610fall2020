@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        Physics.gravity *= gravityModifier;
+        Physics.gravity *= gravityModifier; //add jump physics created in class
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerAnimator = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
@@ -39,31 +39,32 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop(); 
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
-
-        // if (globalData.gameStarted)
-        // {
-        //     playerAudio.Play();
-        // }
     }
-    //to tell when player collides with the ground, or another object...
-    private void OnCollisionEnter(Collision collidedObject)
+    private void OnCollisionEnter(Collision collidedObject) //on collision slows game...?
     {
         if (collidedObject.gameObject.CompareTag("Ground")) //use tags in Unity to refer to specific game objects
         {
-            isOnGround = true;
-            dirtParticle.Play(); 
+            isOnGround = true; //should I use a CharacterController.isGrounded instead??
+            dirtParticle.Play();
         }
-        else if (collidedObject.gameObject.CompareTag("Rock")) //change this function
+        else if (collidedObject.gameObject.CompareTag("InstaDeath")) //change tag
         {
-            globalData.isGameOver = true;
-            globalData.gameStarted = false;
-            playerAnimator.SetBool("Death_b", true);
-            playerAnimator.SetInteger("DeathType_int",1);
-            explosionParticle.Play();
-            dirtParticle.Stop(); 
-            playerAudio.Stop();
-            playerAudio.PlayOneShot(crashSound, 1.0f);
+            //PROBLEM: only works when gameObject is no longer "trigger"
+            PlayerDeath();
             gameManager.GameOver();
         }
+    }
+
+    public void PlayerDeath()
+    {
+        globalData.isGameOver = true;
+        globalData.gameStarted = false;
+        playerAnimator.SetBool("Death_b", true);
+        playerAnimator.SetInteger("DeathType_int",1);
+        explosionParticle.Play();
+        dirtParticle.Stop(); 
+        playerAudio.Stop();
+        playerAudio.PlayOneShot(crashSound, 1.0f);
+        gameManager.GameOver();
     }
 }

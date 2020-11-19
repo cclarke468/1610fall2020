@@ -2225,8 +2225,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.1381166, z: 1}
-  m_Center: {x: -0, y: 1.5073274, z: 0}
+  m_Size: {x: 2.0203433, y: 3.1381166, z: 1.193955}
+  m_Center: {x: 0.0034484267, y: 1.5073274, z: 0.09697747}
 --- !u!54 &1023983092
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3138,9 +3138,10 @@ GameObject:
   - component: {fileID: 5119934037864767168}
   - component: {fileID: 2348148327338237638}
   - component: {fileID: 1278470005095267955}
+  - component: {fileID: 4461885075535403737}
   - component: {fileID: 4461885075535403735}
   - component: {fileID: 4461885075535403736}
-  - component: {fileID: 4461885075535403737}
+  - component: {fileID: 4461885075535403738}
   m_Layer: 0
   m_Name: small rock
   m_TagString: Rock
@@ -3189,8 +3190,23 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 2
   m_CollisionDetection: 0
+--- !u!114 &4461885075535403738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461885075535403734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f737ac6d56664f9886ad52de7e5a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6,
+    type: 3}
+  globalData: {fileID: 11400000, guid: 9946510dc06e54330989342de7bd3f97, type: 2}
 --- !u!4 &5119934037864767168
 Transform:
   m_ObjectHideFlags: 0
@@ -3199,7 +3215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4461885075535403734}
   m_LocalRotation: {x: -0, y: -0.41433665, z: -0, w: 0.91012377}
-  m_LocalPosition: {x: 9.2227, y: -0.81725, z: 0}
+  m_LocalPosition: {x: 0.95, y: -1.63, z: 0}
   m_LocalScale: {x: 0.46361282, y: 0.4636128, z: 0.46361282}
   m_Children: []
   m_Father: {fileID: 0}

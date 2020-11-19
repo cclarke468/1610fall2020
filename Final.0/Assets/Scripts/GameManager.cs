@@ -15,10 +15,10 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public PlayerController playerController;
 
-    private void Awake()
-    {
-        titleScreen.gameObject.SetActive(true);
-    }
+    // private void Awake()
+    // {
+    //     titleScreen.gameObject.SetActive(true);
+    // }
 
     public void StartGame(/*int level*/)
     {

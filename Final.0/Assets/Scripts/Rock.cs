@@ -18,6 +18,7 @@ public class Rock : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        print("rock");
         if (!gameObject.CompareTag("Rock")) //REPLACE TAG with better identification system
         {
             gameManager.GameOver();

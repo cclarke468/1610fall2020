@@ -10,10 +10,10 @@ public class RepeatBackground : MonoBehaviour
 
     private void Start()
     {
-        startPosition = transform.position; //set background position to it's current position
+        startPosition = transform.localPosition;
         resetPos = GetComponent<BoxCollider>().size.x / 2;
-        //use box collider to measure width of background, so get the box collider's width (x) and divide by 2
-        //now we know exactly when to repeat
+        print("start pos is " + startPosition +"; size is " + GetComponent<BoxCollider>().size.x + "; resetPos is " + resetPos);
+        //THIS METHOD ONLY WORKS IF THE GAME OBJECT IS SCALED a certain way (works at scale of 1, 2, 4)
     }
 
     private void Update()
@@ -21,7 +21,10 @@ public class RepeatBackground : MonoBehaviour
         //make background reset to start position once it passes reset point
         if (transform.position.x < startPosition.x - resetPos || transform.position.x > startPosition.x + resetPos)
         {
+            float temp = startPosition.x - resetPos;
+            print("reset when x="+temp);
             transform.position = startPosition;
+            
         }
 
     }

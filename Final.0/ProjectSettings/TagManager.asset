@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Obstacle
   - Rock
   - InstaDeath
+  - Debug
   layers:
   - Default
   - TransparentFX

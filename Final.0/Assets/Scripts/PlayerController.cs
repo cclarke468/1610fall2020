@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip crashSound;
     public AudioSource playerAudio;
     private bool isOnGround = true;
+    public MoveHorizontal moveHorizontal;
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -52,6 +53,11 @@ public class PlayerController : MonoBehaviour
             //PROBLEM: only works when gameObject is no longer "trigger"
             PlayerDeath();
             gameManager.GameOver();
+        }
+        else if (collidedObject.gameObject.CompareTag("Debug"))
+        {
+            print("DEBUG OBJECT");
+            // moveHorizontal
         }
     }
 

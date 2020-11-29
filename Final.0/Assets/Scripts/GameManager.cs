@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         globalData.isGameOver = false;
         globalData.gameStarted = true;
+        globalData.playerMovement = true;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerController.playerAudio.Play();
         globalData.rockScore = 0;

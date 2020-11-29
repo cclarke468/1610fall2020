@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         else if (collidedObject.gameObject.CompareTag("Debug"))
         {
             print("DEBUG OBJECT");
-            // moveHorizontal
+            globalData.playerMovement = false;
         }
     }
 

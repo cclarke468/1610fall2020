@@ -11,6 +11,7 @@ public class GlobalData : ScriptableObject
     public bool isGameOver;
     public bool gameStarted;
     public int rockScore;
+    public bool playerMovement;
 
     void Start()
     {

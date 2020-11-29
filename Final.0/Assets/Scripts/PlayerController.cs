@@ -57,10 +57,15 @@ public class PlayerController : MonoBehaviour
         else if (collidedObject.gameObject.CompareTag("Debug"))
         {
             print("DEBUG OBJECT");
-            globalData.playerMovement = false;
+            // globalData.playerMovement = false;
+            OnCollisionExit(new Collision());
         }
     }
 
+    private void OnCollisionExit(Collision other)
+    {
+        print("NOT IN DEBUG OBJECT");
+    }
     public void PlayerDeath()
     {
         globalData.isGameOver = true;

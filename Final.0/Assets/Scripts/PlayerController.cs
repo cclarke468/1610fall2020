@@ -58,14 +58,14 @@ public class PlayerController : MonoBehaviour
         {
             print("DEBUG OBJECT");
             // globalData.playerMovement = false;
-            OnCollisionExit(new Collision());
+            // OnCollisionExit(new Collision());
         }
     }
 
-    private void OnCollisionExit(Collision other)
-    {
-        print("NOT IN DEBUG OBJECT");
-    }
+    // private void OnCollisionExit(Collision other)
+    // {
+    //     print("NOT IN DEBUG OBJECT");
+    // }
     public void PlayerDeath()
     {
         globalData.isGameOver = true;

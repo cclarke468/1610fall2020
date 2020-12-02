@@ -2888,6 +2888,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1942627711}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1032261087 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6,
+    type: 3}
+  m_PrefabInstance: {fileID: 252037551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1035211599 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3,
@@ -4071,7 +4077,7 @@ GameObject:
   - component: {fileID: 5240121507039331196}
   m_Layer: 0
   m_Name: big rock
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4088,7 +4094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f737ac6d56664f9886ad52de7e5a469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionParticle: {fileID: 677819824}
+  explosionParticle: {fileID: 1032261087}
   globalData: {fileID: 11400000, guid: 9946510dc06e54330989342de7bd3f97, type: 2}
   pointValue: 3
 --- !u!65 &5240121507039331197

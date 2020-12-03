@@ -16,10 +16,10 @@ public class Rock : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        explosionParticle.Play();
-        Destroy(gameObject);
-        if (gameObject.CompareTag("Rock")) //REPLACE TAG with better identification system
+        if (gameObject.CompareTag("Rock") && globalData.gameStarted) //REPLACE TAG with better identification system
         {
+            explosionParticle.Play(); //not working
+            Destroy(gameObject);
             gameManager.UpdateScore(pointValue);
             print("rock worth "+pointValue+" points");
         }

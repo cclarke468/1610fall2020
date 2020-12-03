@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         titleScreen.gameObject.SetActive(true);
+        globalData.gameStarted = false;
     }
 
     public void StartGame(/*int level*/)

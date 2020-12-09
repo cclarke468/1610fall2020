@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip crashSound;
     public AudioSource playerAudio;
     private bool isOnGround = true;
-    public MoveHorizontal moveHorizontal;
+    // public MoveHorizontal moveHorizontal;
+    public float speed = 10f; 
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        PlayerMovement();
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !globalData.isGameOver) //if player jumps off ground
         {
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
@@ -57,15 +59,21 @@ public class PlayerController : MonoBehaviour
         else if (collidedObject.gameObject.CompareTag("Debug"))
         {
             print("DEBUG OBJECT");
-            // globalData.playerMovement = false;
-            // OnCollisionExit(new Collision());
         }
     }
 
-    // private void OnCollisionExit(Collision other)
-    // {
-    //     print("NOT IN DEBUG OBJECT");
-    // }
+    public void PlayerMovement()
+    {
+        if (globalData.gameStarted && !globalData.isGameOver)
+        {
+            var hInput = Input.GetAxis("Horizontal"); 
+            if (!globalData.isGameOver)
+            {
+                transform.Translate(Time.deltaTime * speed * new Vector3(hInput,0,0), Space.World);
+            }
+        }
+    }
+    
     public void PlayerDeath()
     {
         globalData.isGameOver = true;

@@ -16,6 +16,6 @@ public class FollowPlayer : MonoBehaviour
         //"new" creates new instance (different from a variable) of a vector3; it is TEMPORARY!
         //--transform.position = player.transform.position + new Vector3(0, 5, -9);
         //**dang it...we're making a permanent variable for the new vector3 called offset
-        transform.position = player.transform.position + offset;
+        transform.Translate(player.transform.position + offset);
     }
 }

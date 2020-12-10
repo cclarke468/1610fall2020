@@ -7,14 +7,15 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     private Image o2Bar;
+    public GlobalData globalData;
     private void Start()
     {
         o2Bar = GetComponent<Image>();
     }
 
-    // public void DisplayValue(FloatData data)
-    // {
-    //     o2Bar.fillAmount = data.value;
-            //need coroutine for slow decrease of O2
-    // }
+     public void DisplayValue()
+     {
+         o2Bar.fillAmount = globalData.o2Percent;
+         // need coroutine for slow decrease of O2
+     }
 }

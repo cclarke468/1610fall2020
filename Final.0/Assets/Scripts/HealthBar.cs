@@ -18,4 +18,5 @@ public class HealthBar : MonoBehaviour
          o2Bar.fillAmount = globalData.o2Percent;
          // need coroutine for slow decrease of O2
      }
+     
 }

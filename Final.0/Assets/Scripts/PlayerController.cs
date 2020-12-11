@@ -60,6 +60,11 @@ public class PlayerController : MonoBehaviour
         {
             print("DEBUG OBJECT");
         }
+        else if (collidedObject.gameObject.CompareTag("Finish"))
+        {
+            PlayerWon();
+            gameManager.GameWon();
+        }
     }
 
     public void PlayerMovement()
@@ -70,6 +75,7 @@ public class PlayerController : MonoBehaviour
             if (!globalData.isGameOver)
             {
                 transform.Translate(Time.deltaTime * speed * new Vector3(hInput,0,0), Space.World);
+                // playerRigidbody.
             }
         }
     }
@@ -85,5 +91,14 @@ public class PlayerController : MonoBehaviour
         playerAudio.Stop();
         playerAudio.PlayOneShot(crashSound, 1.0f);
         gameManager.GameOver();
+    }
+
+    public void PlayerWon()
+    {
+        globalData.isGameOver = true;
+        globalData.gameStarted = false;
+        playerAnimator.SetBool("", true);//idle or other animation
+        dirtParticle.Stop();
+        playerAudio.Stop();
     }
 }

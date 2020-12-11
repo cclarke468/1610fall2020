@@ -11,14 +11,17 @@ public class FollowPlayer : MonoBehaviour
 
     private void Start()
     {
-        transform.position = location;
+        location.Set(transform.position.x,transform.position.y, transform.position.z);
         // transform.rotation = rotation;
     }
 
     void LateUpdate()
     {
         // transform.Translate(player.transform.position);
-        transform.position = player.transform.position + location;
+        location.x = player.transform.position.x;
+        location.y = transform.position.y;
+        location.z = transform.position.z;
+        transform.position = location;
         print(transform.position + " camera position");
         print(player.transform.position + " player position");
     }

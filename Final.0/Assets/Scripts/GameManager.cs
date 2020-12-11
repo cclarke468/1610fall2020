@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         titleScreen.gameObject.SetActive(true);
         globalData.gameStarted = false;
+        globalData.ResetCashAmount();//remove
     }
 
     public void StartGame(/*int level*/)
@@ -42,6 +43,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverScreen.gameObject.SetActive(true);
+        globalData.isGameOver = true;
+    }
+
+    public void GameWon()
+    {
+        globalData.CalculateCashEarned();
+        print("You got "+globalData.rockScore+" rock(s) and had "+globalData.o2Percent+"% o2 left! " +
+              "You get $"+globalData.cash+"!");
         globalData.isGameOver = true;
     }
     public void RestartGame()

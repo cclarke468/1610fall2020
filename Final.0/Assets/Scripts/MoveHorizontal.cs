@@ -30,7 +30,7 @@ public class MoveHorizontal : MonoBehaviour
         // MoveOnInput(globalData.playerMovement);
         if (globalData.gameStarted && !globalData.isGameOver)
         {
-            var hInput = -Input.GetAxis("Horizontal"); //negative because backdrop needs to move opposite the player
+            var hInput = Input.GetAxis("Horizontal"); //negative because backdrop needs to move opposite the player
             if (!globalData.isGameOver)
             {
                 transform.Translate(Time.deltaTime * speed * new Vector3(hInput,0,0), Space.World);

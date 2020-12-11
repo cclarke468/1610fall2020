@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -14,7 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject titleScreen;
     public GameObject gameOverScreen;
     public GameObject inGameScreen;
-    public PlayerController playerController;
+    private PlayerController playerController;
+    public HealthBar o2Bar;
 
     private void Awake()
     {
@@ -35,6 +37,12 @@ public class GameManager : MonoBehaviour
         UpdateScore(0);
         inGameScreen.gameObject.SetActive(true);
         titleScreen.gameObject.SetActive(false);
+        while (globalData.o2Percent > 0)
+        {
+            globalData.UpdateO2(-0.01f);
+            // o2Bar.DisplayValue();
+            print(globalData.o2Percent);
+        }
     }
 
     public void UpdateScore(int scoreToAdd)
@@ -58,7 +66,8 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        print("how do i skip the title screen upon restart...? hmmmm...");
+        print("how do i skip the title screen upon restart...? hmmmm..."); //probably need scene loader
     }
     
+   
 }

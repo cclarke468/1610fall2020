@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
             
             isOnGround = false;
             playerAnimator.SetTrigger("Jump_trig");
-                //PROBLEM: can't edit running jump state in unity editor
-                
             dirtParticle.Stop(); 
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
@@ -56,10 +54,10 @@ public class PlayerController : MonoBehaviour
             PlayerDeath();
             gameManager.GameOver();
         }
-        else if (collidedObject.gameObject.CompareTag("Debug"))
-        {
-            print("DEBUG OBJECT");
-        }
+        // else if (collidedObject.gameObject.CompareTag("Debug"))
+        // {
+        //     // print("DEBUG OBJECT");
+        // }
         else if (collidedObject.gameObject.CompareTag("Finish"))
         {
             PlayerWon();

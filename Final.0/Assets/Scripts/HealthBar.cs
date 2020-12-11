@@ -16,7 +16,11 @@ public class HealthBar : MonoBehaviour
      public void DisplayValue()
      {
          o2Bar.fillAmount = globalData.o2Percent;
-         // need coroutine for slow decrease of O2
+         // need enum? for slow decrease of O2
      }
      
+     // public void UpdateO2(int updateNumber)
+     // {
+     //     globalData.o2Percent += updateNumber;
+     // }
 }

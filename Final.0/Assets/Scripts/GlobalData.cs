@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class GlobalData : ScriptableObject
         gameStarted = false;
         o2Percent = 1;
     }
-    public float CalculateCashEarned()
+    public float CalculateCashEarned() //Anthony return
     {
         o2Percent *= 100;
         cash += ((rockScore*300.14f) + (o2Percent / 3));
@@ -30,5 +31,13 @@ public class GlobalData : ScriptableObject
     public void ResetCashAmount()
     {
         cash = 0;
+    }
+
+    public void UpdateO2(float updateNumber)
+    {
+        o2Percent += updateNumber;
+        if (o2Percent < 0) o2Percent = 0;
+        if (o2Percent > 1) o2Percent = 1;
+        Debug.Log("o2 percent is "+o2Percent);
     }
 }

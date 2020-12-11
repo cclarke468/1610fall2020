@@ -13,13 +13,14 @@ public class GameManager : MonoBehaviour
     public GlobalData globalData;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
+    public GameObject inGameScreen;
     public PlayerController playerController;
 
     private void Awake()
     {
         titleScreen.gameObject.SetActive(true);
         globalData.gameStarted = false;
-        globalData.ResetCashAmount();//remove
+        // globalData.ResetCashAmount();//remove
     }
 
     public void StartGame(/*int level*/)
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         globalData.rockScore = 0;
         globalData.o2Percent = 1;
         UpdateScore(0);
+        inGameScreen.gameObject.SetActive(true);
         titleScreen.gameObject.SetActive(false);
     }
 
@@ -49,8 +51,8 @@ public class GameManager : MonoBehaviour
     public void GameWon()
     {
         globalData.CalculateCashEarned();
-        print("You got "+globalData.rockScore+" rock(s) and had "+globalData.o2Percent+"% o2 left! " +
-              "You get $"+globalData.cash+"!");
+        print("You gathered "+globalData.rockScore+" rock(s) and had "+globalData.o2Percent+"% o2 left! " +
+              "You now have $"+globalData.cash+" in cash!");
         globalData.isGameOver = true;
     }
     public void RestartGame()

@@ -18,11 +18,11 @@ public class FollowPlayer : MonoBehaviour
     void LateUpdate()
     {
         // transform.Translate(player.transform.position);
-        location.x = player.transform.position.x;
+        location.x = player.transform.position.x + 8.4f;
         location.y = transform.position.y;
         location.z = transform.position.z;
         transform.position = location;
-        print(transform.position + " camera position");
-        print(player.transform.position + " player position");
+        // print(transform.position + " camera position");
+        // print(player.transform.position + " player position");
     }
 }

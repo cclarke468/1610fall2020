@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595c78c466bfc44e09033be384bd64f4, type: 3}
-  m_Name: New Global Data Asset
+  m_Script: {fileID: 11500000, guid: 268b50455bc5c4fb1b8f126c72387b7d, type: 3}
+  m_Name: SpriteCollection
   m_EditorClassIdentifier: 
-  isGameOver: 0
-  titleScreen: {fileID: 0}
-  gameOverScreen: {fileID: 0}
-  rockList: []
-  scoreText: {fileID: 0}
+  collectedObjects: []

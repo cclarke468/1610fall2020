@@ -355,6 +355,8 @@ MonoBehaviour:
   titleScreen: {fileID: 886287107}
   gameOverScreen: {fileID: 1498699406}
   inGameScreen: {fileID: 1965629271}
+  o2Bar: {fileID: 786914597}
+  waitTime: 0.5
 --- !u!4 &63377968
 Transform:
   m_ObjectHideFlags: 0

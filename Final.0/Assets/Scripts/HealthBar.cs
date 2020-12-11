@@ -8,6 +8,7 @@ public class HealthBar : MonoBehaviour
 {
     private Image o2Bar;
     public GlobalData globalData;
+    public float waitTime = 1;
     private void Start()
     {
         o2Bar = GetComponent<Image>();
@@ -19,8 +20,14 @@ public class HealthBar : MonoBehaviour
          // need enum? for slow decrease of O2
      }
      
-     // public void UpdateO2(int updateNumber)
-     // {
-     //     globalData.o2Percent += updateNumber;
-     // }
+     public IEnumerator O2CountDown()
+     {
+         while (globalData.o2Percent > 0 && !globalData.isGameOver)
+         {
+             yield return new WaitForSeconds(waitTime);
+             globalData.UpdateO2(-0.01f);
+             DisplayValue();
+             print(globalData.o2Percent);
+         }
+     }
 }

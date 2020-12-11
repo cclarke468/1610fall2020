@@ -16,15 +16,27 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject inGameScreen;
     private PlayerController playerController;
-    public HealthBar o2Bar;
+    // public Img o2Bar;
+    private HealthBar o2Bar;
+    public float waitTime = 0.5f;
 
     private void Awake()
     {
         titleScreen.gameObject.SetActive(true);
         globalData.gameStarted = false;
-        // globalData.ResetCashAmount();//remove
+        globalData.ResetCashAmount();//remove
     }
 
+    IEnumerator O2CountDown()
+    {
+        while (globalData.o2Percent > 0 && !globalData.isGameOver)
+        {
+            yield return new WaitForSeconds(waitTime);
+            globalData.UpdateO2(-0.01f);
+            // o2BarScript.DisplayValue();
+            print(globalData.o2Percent);
+        }
+    }
     public void StartGame(/*int level*/)
     {
         globalData.isGameOver = false;
@@ -37,12 +49,8 @@ public class GameManager : MonoBehaviour
         UpdateScore(0);
         inGameScreen.gameObject.SetActive(true);
         titleScreen.gameObject.SetActive(false);
-        while (globalData.o2Percent > 0)
-        {
-            globalData.UpdateO2(-0.01f);
-            // o2Bar.DisplayValue();
-            print(globalData.o2Percent);
-        }
+        // o2Bar.StartCoroutine(o2Bar.O2CountDown());
+        StartCoroutine(O2CountDown());
     }
 
     public void UpdateScore(int scoreToAdd)
@@ -54,14 +62,26 @@ public class GameManager : MonoBehaviour
     {
         gameOverScreen.gameObject.SetActive(true);
         globalData.isGameOver = true;
+        // o2Bar.StopCoroutine(o2Bar.O2CountDown());
+        StopCoroutine(O2CountDown());
     }
 
     public void GameWon()
     {
-        globalData.CalculateCashEarned();
-        print("You gathered "+globalData.rockScore+" rock(s) and had "+globalData.o2Percent+"% o2 left! " +
-              "You now have $"+globalData.cash+" in cash!");
         globalData.isGameOver = true;
+        StopCoroutine(O2CountDown());
+        // o2Bar.StopCoroutine(o2Bar.O2CountDown());
+        if (globalData.rockScore > 0) //create text box that prints this
+        {
+            for (int i = 0; i < globalData.rockScore; i++)
+            {
+                int rockCount = i + 1;
+                print("Calculating rocks collected: " + rockCount);
+            }
+        }
+        globalData.CalculateCashEarned();
+        print("You gathered "+globalData.rockScore+" rock(s) and had "+globalData.o2Percent*100+"% o2 left! " +
+              "You now have $"+globalData.cash+" in cash!");
     }
     public void RestartGame()
     {

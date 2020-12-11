@@ -23,8 +23,7 @@ public class GlobalData : ScriptableObject
     }
     public float CalculateCashEarned() //Anthony return
     {
-        o2Percent *= 100;
-        cash += ((rockScore*300.14f) + (o2Percent / 3));
+        cash += rockScore*300.14f + o2Percent*3;
         return cash;
     }
 

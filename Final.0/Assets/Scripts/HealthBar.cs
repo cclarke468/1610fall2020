@@ -17,10 +17,10 @@ public class HealthBar : MonoBehaviour
      public void DisplayValue()
      {
          o2Bar.fillAmount = globalData.o2Percent;
-         // need enum? for slow decrease of O2
+         // need enum for slow decrease of O2...
      }
      
-     public IEnumerator O2CountDown()
+     public IEnumerator O2CountDown() //same as gamemanager, but not working here for some reason
      {
          while (globalData.o2Percent > 0 && !globalData.isGameOver)
          {

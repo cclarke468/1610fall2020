@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     // public Img o2Bar;
     private HealthBar o2Bar;
     public float waitTime = 0.5f;
+    // public Animator rockAnimator;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
             // o2BarScript.DisplayValue();
             print(globalData.o2Percent);
         }
+        if (globalData.o2Percent < 0) GameOver();
     }
     public void StartGame(/*int level*/)
     {
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour
         // globalData.playerMovement = true;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerController.playerAudio.Play();
+        // rockAnimator.gameObject.GetComponent<Animator>();
+        // rockAnimator.Play();
         globalData.rockScore = 0;
         globalData.o2Percent = 1;
         UpdateScore(0);
@@ -79,9 +83,8 @@ public class GameManager : MonoBehaviour
                 print("Calculating rocks collected: " + rockCount);
             }
         }
-        globalData.CalculateCashEarned();
         print("You gathered "+globalData.rockScore+" rock(s) and had "+globalData.o2Percent*100+"% o2 left! " +
-              "You now have $"+globalData.cash+" in cash!");
+              "You now have $"+globalData.CalculateCashEarned()+" in cash!");
     }
     public void RestartGame()
     {

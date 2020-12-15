@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5430967527219527565}
   - component: {fileID: 5430967527221715267}
   - component: {fileID: 5430967527221715276}
+  - component: {fileID: 9061805851199911234}
   m_Layer: 0
   m_Name: O2 Damager
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5430967527221715277}
-  m_LocalRotation: {x: 0.0000000218557, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: 0.06, z: 0.013704}
   m_LocalScale: {x: 0.70609, y: 0.70609, z: 0.70609}
   m_Children: []
@@ -131,3 +132,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7150211, y: 3.1539106, z: 2.7030396}
   m_Center: {x: 0.06533378, y: 1.3159657, z: 0.046627223}
+--- !u!208 &9061805851199911234
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430967527221715277}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.358, y: 1.577, z: 1.3520001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.065000005, y: 1.3160001, z: 0.047000002}
+  m_TimeToStationary: 0.5

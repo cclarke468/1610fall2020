@@ -13,24 +13,31 @@ public class AIController : MonoBehaviour
     private void Start()
     {
         pursuingAgent = GetComponent<NavMeshAgent>();
-        playerLocation = transform;
+        playerLocation = transform; //set destination to enemy (this object) to keep it from auto pursuing
     }
+    
+    //I think this trigger is preventing player death trigger in player controller script...enum??
     private void OnTriggerEnter(Collider other)
     {
-        canPatrol = false;
-        playerLocation = other.transform;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canPatrol = false;
+            playerLocation = other.transform;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         canPatrol = true;
+        playerLocation = transform;
     }
     private void Update()
     {
         pursuingAgent.destination = playerLocation.position;
-        // if (!canPatrol) return;
-        // if (pursuingAgent.pathPending || !(pursuingAgent.remainingDistance < 0.5f)) return;
-        // playerLocation = patrolPoints[i];
-        // i = (i + 1) % patrolPoints.Count;
+        // print("enemy position: " + pursuingAgent.destination + ", player: " + playerLocation.position);
+        if (!canPatrol) return;
+        if (pursuingAgent.pathPending || !(pursuingAgent.remainingDistance < 0.5f)) return;
+        playerLocation = patrolPoints[i];
+        i = (i + 1) % patrolPoints.Count;
     }
 }
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7124541396260319147}
   - component: {fileID: 7124541396260319141}
   - component: {fileID: 7124541396260319144}
+  - component: {fileID: 4461885075535403735}
   m_Layer: 0
   m_Name: small rock
   m_TagString: Rock
@@ -28,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7124541396260319140}
-  m_LocalRotation: {x: -0, y: -0.41433665, z: -0, w: 0.91012377}
+  m_LocalRotation: {x: 0, y: -0.41433582, z: 0, w: 0.9101241}
   m_LocalPosition: {x: 6.7700005, y: -1.6300001, z: 0}
   m_LocalScale: {x: 0.46361288, y: 0.4636128, z: 0.46361288}
   m_Children:
   - {fileID: 8278731824952081565}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -48.955, z: 0}
 --- !u!33 &9197181702070512564
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -127,6 +128,25 @@ MonoBehaviour:
   explosionParticle: {fileID: 2420680474745924752}
   globalData: {fileID: 11400000, guid: 9946510dc06e54330989342de7bd3f97, type: 2}
   pointValue: 1
+--- !u!95 &4461885075535403735
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124541396260319140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc4a31ba7c80441a592422a4a1964a6e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8914365895454214869
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +158,7 @@ GameObject:
   - component: {fileID: 8278731824952081565}
   - component: {fileID: 2420680474745924752}
   - component: {fileID: 8493208620396688523}
+  - component: {fileID: 419590560}
   m_Layer: 0
   m_Name: FX_Explosion_Smoke
   m_TagString: Untagged
@@ -4858,3 +4879,22 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!95 &419590560
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8914365895454214869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc4a31ba7c80441a592422a4a1964a6e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
